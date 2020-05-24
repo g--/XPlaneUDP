@@ -161,7 +161,7 @@ class XPlaneUdp:
               ) = struct.unpack("<BBiiIH", data)
             computer_name = packet[21:-1]
             if beacon_major_version == 1 \
-               and beacon_minor_version == 1 \
+               and beacon_minor_version <= 2 \
                and application_host_id == 1:
                 self.BeaconData["IP"] = sender[0]
                 self.BeaconData["Port"] = port
